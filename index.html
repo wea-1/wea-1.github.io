@@ -1,0 +1,48 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精美天气</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="weather-card">
+            <div class="location">
+                <i class="fas fa-location-dot"></i>
+                <span id="location-text">正在获取位置...</span>
+            </div>
+            <div class="weather-info">
+                <div class="temperature">
+                    <span id="temperature">--</span>°C
+                </div>
+                <div class="weather-icon">
+                    <i id="weather-icon" class="fas fa-sun"></i>
+                </div>
+                <div class="weather-description" id="weather-description">
+                    正在获取天气信息...
+                </div>
+            </div>
+            <div class="details">
+                <div class="detail-item">
+                    <i class="fas fa-wind"></i>
+                    <span>风速：</span>
+                    <span id="wind-speed">-- km/h</span>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-tint"></i>
+                    <span>湿度：</span>
+                    <span id="humidity">--%</span>
+                </div>
+            </div>
+            <div class="forecast" id="forecast">
+                <!-- 未来天气预报将通过JS动态添加 -->
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
