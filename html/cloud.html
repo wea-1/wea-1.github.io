@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>联系我</title>
+    <title>项目详情 - 局域网云盘</title>
+    <!-- 添加 marked.js 用于解析 Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
-        /* 基础样式 */
+        /* 之前的基础样式 */
         :root {
             --background: #0d1117;
             --text: #ffffff;
@@ -25,7 +27,6 @@
             color: var(--text);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             line-height: 1.6;
-            text-align: center;
         }
 
         /* 导航栏样式 */
@@ -148,18 +149,64 @@
             .project-title {
                 font-size: 2rem;
             }
-            
-        /* 文本样式 */
-         h1, h2, h3, h4, h5, h6 { font-family: 'CustomFont', sans-serif; text-align: center; }
         }
     </style>
 </head>
 <body>
-      <h1>联系方式</h1>
-      <ul>
-      <li><a>🐧194427930</a></li>
-      <li><a>mail:shuocc1@outlook.com</a></li>
-      <li><a href="https://github.com/shuo156/">Github</a></li>
-      </ul>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="https://wea-1.github.io/" class="back-button">
+                ← 返回首页
+            </a>
+        </div>
+    </nav>
+
+    <!-- 项目详情 -->
+    <main class="project-detail">
+        <header class="project-header">
+            <h1 class="project-title">局域网云盘</h1>
+            <div class="project-meta">
+                <span>最后更新: 2025-07-20</span>
+            </div>
+        </header>
+
+        <!-- Markdown 内容将被加载到这里 -->
+        <div id="markdown-content" class="markdown-content">
+            加载中...
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2025 Github:shuo156. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="https://github.com/shuo156" class="footer-link">GitHub</a>
+                <a href="https://shuo156.github.io/" class="footer-link">联系我</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 从GitHub加载并渲染Markdown内容
+        async function loadMarkdown() {
+            try {
+                // README.md文件URL
+                const response = await fetch('https://shuo156.github.io/Local-cloud/README.md');
+                const markdown = await response.text();
+                
+                // 使用marked解析Markdown
+                const htmlContent = marked.parse(markdown);
+                document.getElementById('markdown-content').innerHTML = htmlContent;
+            } catch (error) {
+                console.error('加载Markdown失败:', error);
+                document.getElementById('markdown-content').innerHTML = '加载失败，请稍后重试';
+            }
+        }
+
+        // 页面加载时执行
+        document.addEventListener('DOMContentLoaded', loadMarkdown);
+    </script>
 </body>
 </html>
